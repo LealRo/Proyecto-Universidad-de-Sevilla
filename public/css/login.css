@@ -1,0 +1,23 @@
+body {
+    background: #fafafa;
+}
+
+img {
+    border-radius: 50%;
+}
+
+.container-fluid {
+    background: white;
+    padding: 20px;
+    margin: 100px auto 0px auto;
+    border: 1px solid #e0e0e0;
+    width: 350px;
+}
+
+.invalid-feedback {
+    text-align: left;
+}
+
+.valid-feedback {
+    text-align: left;
+}

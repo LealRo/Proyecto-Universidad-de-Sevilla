@@ -1,0 +1,13 @@
+body {
+    background: #fafafa;
+}
+
+.container-fluid {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    border: 1px solid #e0e0e0;
+    width: 80%;
+}
+
+
