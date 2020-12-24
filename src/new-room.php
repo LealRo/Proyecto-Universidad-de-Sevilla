@@ -24,8 +24,8 @@
         */
 
         /* insert query */
-        $sql = "INSERT INTO sala (idMaestro, idCuento, titulo, clave, alumno1, alumno2, puntaje, duracion)
-                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', ' ', ' ', ' ', '$duracion')";
+        $sql = "INSERT INTO sala (idMaestro, idCuento, titulo, clave, alumno1, alumno2, puntaje, duracion, estado)
+                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', ' ', ' ', ' ', '$duracion', '0')";
         
         /* attempt to execute insert query */
         if (mysqli_query($conn, $sql)) {

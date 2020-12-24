@@ -27,7 +27,7 @@
                     <h3>Nueva sala</h3>
                     <br>
                     <!-- New Room Form -->
-                    <form action="../src/newRoom.php" method="POST" id="newroom" class="needs-validation" novalidate>
+                    <form action="../src/new-room.php" method="POST" id="newroom" class="needs-validation" novalidate>
                         <div class="form-row">
                             <div class="form-group col-auto">
                                 <div class="input-group">

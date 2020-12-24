@@ -11,6 +11,7 @@
 
     /* check connection */
     if (!$conn) {
+        echo '<script>console.log("Connection failed")</script';
         die("Connection failed" . mysqli_connect_error());
     }
     else {
