@@ -17,9 +17,18 @@
 
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
+            $idSala = $row['idSala'];
             /* store room data inside session variables */
-            // $_SESSION['room'] = $row['idSala'];
+            // $_SESSION['room'] = $idSala;
             // $_SESSION['student'] = $nombres;
+            
+            /* update session/game state */
+            $sql = "UPDATE sala SET estado = '1' WHERE idSala = '$idSala'";
+            if (mysqli_query($conn, $sql)) {
+                echo '<script>console.log("Game state -> 1: Title screen");</script>';
+            } else {
+                echo '<script>console.log("Error updating game state");</script>'
+            }
         } else {
             echo '<script>console.log("0 results");</script>';
         }
