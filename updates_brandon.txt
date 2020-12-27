@@ -4,7 +4,7 @@ Archivo: views/lectura.php
 Esta pantalla emerge despues de que se crea la sala en el archivo rooms.php.
 El archivo muestra la lectura seleccionada en el archivo rooms.php. 
 
-Archivo: src/newRoom.php
+Archivo: src/new-room.php
 Se agrego un fragmento de codigo necesario para guardar la ruta del archivo y asi
 desplegarlo en cualquier pantalla del sistema, y se cambio el nombre $_POST['cuento'] a $_POST['cuentos'].
 
@@ -15,7 +15,7 @@ que aqui vayan todos los cuentos y/o lecturas.
 -----------------------------------------------------------------------------------------------------------------
 -> Pantalla de tabla de salas.
 Archivo: views/tabla_salas.php
-Este archivo contiene la tabla que muestra todas 
+Este archivo contiene la tabla que muestra todas las salas creadas.
 
 Se agrego un archivo dataTable.js en la ruta public/js el cual traduce al español las herramientas de la tabla.
 
@@ -24,7 +24,7 @@ Este archivo tiene una funcion la cual regresa todos elementos de la tabla sala.
 -----------------------------------------------------------------------------------------------------------------
 -> Pre visualización del pdf
 Se agrego un modal al archivo views/rooms.php.
-Se agrego una funcion en public/js/innerCuent.js, la cual es llamada desde el archivo rooms.php.
+Se agrego una funcion en public/js/innerCuento.js, la cual es llamada desde el archivo rooms.php.
 
 La funcion js obtiene los archivos pdf de manera estatica ya que para poder obtener los archivos de manera dinamica
 con php se requiere hacer un submit con el método post, lo que recarga la pagina y se borraria el texto ingresado en
