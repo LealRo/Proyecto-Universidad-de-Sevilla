@@ -21,13 +21,14 @@
         <title>Salas</title>
     </head>
     <body>
-        <div class="container-fluid">
+    <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <h3>Nueva sala</h3>
                     <br>
+                    
                     <!-- New Room Form -->
-                    <form action="../src/newRoom.php" method="POST" id="newroom" class="needs-validation" novalidate>
+                    <form action="../src/new-room.php" method="POST" id="newroom" class="needs-validation" novalidate>
                         <div class="form-row">
                             <div class="form-group col-auto">
                                 <div class="input-group">
@@ -44,18 +45,19 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-book"></i></span>
                                     </div>
-                                    <select class="custom-select" id="cuento" name="cuento" required>
-                                        <option value="" selected disabled hidden>Selecciona un cuento...</option>
-                                        <option value="1">Los dinosaurios</option>
-                                        <option value="2">Egipcios</option>
-                                        <option value="3">Tema por determinar</option>
-                                        <option value="4">Tema por determinar</option>
-                                        <option value="5">Redes sociales</option>
-                                    </select>
+                                        <select class="custom-select" id="cuento" name="cuentos" onchange="getValue();" required>
+                                            <option value="" selected disabled hidden>Selecciona un cuento...</option>
+                                            <option value="1">Los dinosaurios</option>
+                                            <option value="2">Egipcios</option>
+                                            <option value="3">Tema por determinar</option>
+                                            <option value="4">Tema por determinar</option>
+                                            <option value="5">Redes sociales</option>
+                                        </select>
+                                    
                                     <div class="valid-feedback">Valido.</div>
                                     <div class="invalid-feedback">Falta este campo.</div>
                                 </div>
-                                <small id="cuentoHelpBlock" class="form-text text-muted"><a href="#">Visualizar cuento</a></small>
+                                <small id="cuentoHelpBlock" class="form-text text-muted"><a href="#" data-toggle="modal" data-target="#myModal">Visualizar cuento</a></small>
                             </div>
                             <div class="form-group col-auto">
                                 <div class="input-group">
@@ -82,8 +84,30 @@
                     <hr>
                 </div>
             </div>
-        
+            <a href="menu.php" class="btn btn-success"><i class="fa fa-arrow-left"></i> Regresar</a>         
         </div>
+
+        <!-- Modal para previsualizacion de PDF -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Vista previa de la lectura</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    </div>
+                    <div class="modal-body" id="muestraCuento">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <script src="../public/js/innerCuento.js"></script>    
+      
         
         <!-- JQuery, Popper and Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
