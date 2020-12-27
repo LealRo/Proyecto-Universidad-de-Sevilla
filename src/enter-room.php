@@ -29,6 +29,7 @@
             } else {
                 echo '<script>console.log("Error updating game state");</script>'
             }
+
         } else {
             echo '<script>console.log("0 results");</script>';
         }
