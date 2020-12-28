@@ -27,7 +27,7 @@
             if (mysqli_query($conn, $sql)) {
                 echo '<script>console.log("Game state -> 1: Title screen");</script>';
             } else {
-                echo '<script>console.log("Error updating game state");</script>'
+                echo '<script>console.log("Error updating game state");</script>';
             }
 
         } else {
@@ -38,5 +38,7 @@
         mysqli_free_result($result);
 
         mysqli_close($conn);
+
+        header('location: ../views/phase-title.php');
     }
 ?>
