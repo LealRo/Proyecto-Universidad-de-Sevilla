@@ -1,6 +1,6 @@
 <?php
     /* protect direct url access */
-    require_once '../src/authenticate-phase.php';
+    /* require_once '../src/authenticate-phase.php'; */
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +24,13 @@
         <!-- Main Content -->
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <h1 class="display-3">Titulo del cuento</h1>
+                <h1 class="display-3">Los dinosaurios</h1>
             </div>
+            <hr>
             <br>
             <br>
             <div class="row justify-content-center">
-                <a class="btn btn-success" href="#" role="button">Siguiente <i class="fas fa-arrow-right"></i></a>
+                <a class="btn btn-success" href="phase-questions.php" role="button">Siguiente <i class="fas fa-arrow-right"></i></a>
             </div>
             
         </div>
