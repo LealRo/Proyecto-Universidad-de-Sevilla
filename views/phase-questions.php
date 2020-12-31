@@ -1,3 +1,8 @@
+<?php 
+    /* protect direct url access */
+    require_once '../src/authenticate-phase.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,21 +30,31 @@
             <button type="button" id="eliminar" class="btn btn-secondary"><i class="fas fa-minus-circle"></i> Eliminar ultima pregunta</button>
             <br>
             <br>
-            <form action="phase-read.php" method="post" id="preguntasForm">
+            <form action="phase-read.php" method="post" id="preguntasForm" class="needs-validation" novalidate>
                 <div class="form-group">
                     <input type="text" class="form-control" id="1" name="p1" placeholder="Pregunta 1" autocomplete="off" required>
+                    <div class="valid-feedback">Correcto</div>
+                    <div class="invalid-feedback">Falta este campo</div>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="2" name="p2" placeholder="Pregunta 2" autocomplete="off" required>
+                    <div class="valid-feedback">Correcto</div>
+                    <div class="invalid-feedback">Falta este campo</div>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="3" name="p3" placeholder="Pregunta 3" autocomplete="off" required>
+                    <div class="valid-feedback">Correcto</div>
+                    <div class="invalid-feedback">Falta este campo</div>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="4" name="p4" placeholder="Pregunta 4" autocomplete="off" required>
+                    <div class="valid-feedback">Correcto</div>
+                    <div class="invalid-feedback">Falta este campo</div>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="5" name="p5" placeholder="Pregunta 5" autocomplete="off" required>
+                    <div class="valid-feedback">Correcto</div>
+                    <div class="invalid-feedback">Falta este campo</div>
                 </div>
                 <button type="submit" id="enviar" class="btn btn-success">Siguiente <i class="fas fa-arrow-right"></i></button>
             </form>
@@ -52,67 +67,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-        <script>
-            // Hasta que se cargue por completo el archivo
-            window.addEventListener("load", inicio);
+        <!-- Form Validation JS -->
+        <script src="../public/js/needsValidation.js"></script>
 
-            // Funcion principal
-            function inicio(){
-                document.getElementById("eliminar").addEventListener("click", eliminarCampo);
-                document.getElementById("agregar").addEventListener("click", agregarCampo);
-            }
-
-            // Contador de preguntas adicionales
-            var questionCount = 5;
-
-            function agregarCampo(){
-                // Incrementar contador de inputs agregados
-                questionCount ++;
-                console.log(questionCount);
-
-                // Crear div de bootstrap forms
-                const div = document.createElement("div");
-                div.className = "form-group";
-
-                //Crear elemento input
-                var campoText = document.createElement("input");
-
-                //Agregar clase que funcione con bootstrap
-                campoText.setAttribute("class","form-control");
-                // Agregar id dinamico al elemento input
-                campoText.setAttribute("id","" + questionCount);
-                // Agregar placeholder dinamico al elemento input
-                campoText.setAttribute("placeholder","Pregunta " + questionCount);
-                // Agregar name dinamico al elemento input
-                campoText.setAttribute("name","p" + questionCount);
-                // Agregar name dinamico al elemento input
-                campoText.setAttribute("autocomplete","off");
-                // Agregar required al elemento input
-                campoText.required = true;
-
-                // Agregar el elemento input al div
-                div.appendChild(campoText);
-
-                //Agregar el div a la forma
-                var cont = document.getElementById("preguntasForm");
-
-                // Obtener el boton submit, para agregar los campos arriba de el
-                const sbmt = document.getElementById("enviar");
-
-                // Agregar el campo en el lugar correcto
-                cont.insertBefore(div, sbmt);
-            }
-
-            function eliminarCampo(){
-                if (questionCount > 5) {
-                    // Obtener ultimo elemento input
-                    var element = document.getElementById("" + questionCount);
-                    element.parentNode.removeChild(element);
-
-                    questionCount --;
-                    console.log(questionCount);
-                }
-            }
-        </script>
+        <!-- Template's JS -->
+        <script src="../public/js/phase-questions.js"></script>
     </body>
 </html>

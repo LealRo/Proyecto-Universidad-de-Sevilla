@@ -9,3 +9,11 @@ body {
     border: 1px solid #e0e0e0;
     width: 50%;
 }
+
+input[type=radio]:hover{
+    cursor: pointer;
+}
+
+.form-check label {
+    cursor: pointer;
+}

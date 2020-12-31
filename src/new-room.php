@@ -18,14 +18,9 @@
         $length = random_bytes("4");
         $clave = bin2hex($length);
 
-        /* 
-            FALTA AGREGAR UNA COLUMNA PARA EL "ESTADO" DE LA SALA, ES DECIR  
-            EN QUE FASE DE LA ACTIVIDAD SE ESTA 
-        */
-
         /* insert query */
-        $sql = "INSERT INTO sala (idMaestro, idCuento, titulo, clave, alumno1, alumno2, puntaje, duracion, estado)
-                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', ' ', ' ', ' ', '$duracion', '0')";
+        $sql = "INSERT INTO sala (idMaestro, idCuento, titulo, clave, puntaje, duracion, estado)
+                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', '0', '$duracion', '0')";
         
         /* attempt to execute insert query */
         if (mysqli_query($conn, $sql)) {
