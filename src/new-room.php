@@ -50,6 +50,6 @@
 
         mysqli_close($conn);
 
-        header('location: ../views/lectura.php');
+        header('location: ../views/rooms.php');
     }
 ?>
