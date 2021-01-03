@@ -1,3 +1,11 @@
+<?php 
+    /* protect direct url access */
+    require_once '../src/authenticate-phase.php';
+
+    /* load in dynamic content for this view */
+    require_once '../src/phase-read.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,24 +21,47 @@
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/2c29f6056d.js" crossorigin="anonymous"></script>
             
-        <title>Leer</title>
+        <title>Lee</title>
     </head>
     <body>
         <!-- Main Content -->
         <div class="container-fluid text-center">
-            <h1 class="display-4">Los dinosaurios</h1>
+            <h1 class="display-4">Es hora de leer el texto</h1>
             <hr>
             <br>
+            <?php
+                /* if file path not empty */
+                if(!empty($_SESSION["cuento"])){  
+                    /* get file path from session variable */
+                    $file = $_SESSION["cuento"];    
 
-            <p align="justify">En el cráter de un antiguo volcán, situado en lo alto del único monte de una región perdida en las selvas tropicales, habitaba el último grupo de grandes dinosaurios feroces. Durante miles y miles de años, sobrevivieron a los cambios de la tierra y ahora, liderados por el gran Ferocitaurus, planeaban salir de su escondite para volver a dominarla.
-            Ferocitaurus era un temible tiranosaurus rex que había decidido que llevaban demasiado tiempo aislados, así que durante algunos años se unieron para trabajar y derribar las paredes del gran cráter. Y cuando lo consiguieron, todos prepararon cuidadosamente sus garras y sus dientes para volver a atermorizar al mundo.
-            Al abandonar su escondite de miles de años, todo les resultaba nuevo, muy disitinto a lo que se habían acostumbrado en el cráter, pero siguieron con paso firme durante días. Por fin, desde lo alto de unas montañas vieron un pequeño pueblo, con sus casas y sus habitantes, que parecían pequeños puntitos. Sin haber visto antes a ningún humano, se lanzaron feroces montaña abajo, dispuestos a arrasar con lo que se encontraran...
-            Pero según se acercaron al pueblecito, las casas se fueron haciendo más y más grandes, y más y más.... y cuando las alcanzaron, resultó que eran muchísimo más grandes que los propios dinosaurios, y un niño que pasaba por allí dijo: "¡papá, papá, he encontrado unos dinosaurios en miniatura! ¿puedo quedármelos?".
-            Así las cosas, el temible Ferocitaurus y sus amigos terminaron siendo las mascotas de los niños del pueblo, y al comprobar que millones de años de evolución en el cráter habían convertido a su especie en dinosaurios enanos, aprendieron que nada dura para siempre, y que siempre hay estar dispuesto a adaptarse. Y eso sí, todos demostraron ser unas excelentes y divertidas mascotas.
-            </p>
+                    /* create iframe element with dynamic file path */
+                    $element = "<div id=\"showPDF\"><center><iframe src=\"$file#toolbar=0&navpanes=0&scrollbar=0\" frameborder=\"0\"></iframe></center></div>";
+                    
+                    /* Show file */
+                    echo $element;  
+                }
+            ?>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        <br>
+                            <h4 class="text-danger">¡Precaución!</h4><br>
+                            <h4>¿Seguro que quieres avanzar?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Cancelar</button>
+                            <a href="phase-yes-no.php" role="button" class="btn btn-success btn-block">Si, quiero avanzar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
             <br>
             <br>
-            <a class="btn btn-success" href="#" role="button">Siguiente <i class="fas fa-arrow-right"></i></a>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Siguiente <i class="fas fa-arrow-right"></i></button>
         </div>
 
         <!-- End of Main Content -->

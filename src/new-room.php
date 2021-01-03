@@ -30,19 +30,6 @@
             echo 'Room creation failed!' . mysqli_error($conn);
         }
 
-        /*BUSCAR LECTURA SELECCIONADA*/
-
-        if(isset($_POST["cuentos"])){                   /*Obtener valor del cuento seleccionado*/
-            $sql = "SELECT * FROM cuento";              /*Realizar consulta a tabla*/
-            $result = mysqli_query($conn,$sql);         /*Ejecutar consulta*/
-            while($row = mysqli_fetch_assoc($result)){  /*Recorrer tabla en busca del id*/
-                if($row["idCuento"] == $_POST["cuentos"]){
-                    $file = $row["ruta"];               /*Tomar ruta del archivo */
-                }
-            }
-            $_SESSION["cuento"]=$file;                  /*Guardar ruta en una variable de sesion*/
-        }
-
         mysqli_close($conn);
 
         header('location: ../views/rooms.php');

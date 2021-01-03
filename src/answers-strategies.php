@@ -20,16 +20,16 @@
         /* composing the insert query dynamically */
         for ($i = 0; $i < count($_POST); $i++) {
             if ($i == (count($_POST) - 1)) {
-                $sql .= " ('$idSala', '1', '$respuestas[$i]', '10');";
+                $sql .= " ('$idSala', '2', '$respuestas[$i]', '10');";
                 break;
             }
-            $sql .= " ('$idSala', '1', '$respuestas[$i]', '10'),";
+            $sql .= " ('$idSala', '2', '$respuestas[$i]', '10'),";
         }
         
         /* attempt to execute query */
         if (mysqli_query($conn, $sql)) {
             echo '<script>console.log("New records created successfully");</script>';
-            header('location: ../views/phase-read.php');
+            header('location: ../views/phase-strategies.php');
         } else {
             echo '<script>console.log("Failed to create new records");</script>';
         }
