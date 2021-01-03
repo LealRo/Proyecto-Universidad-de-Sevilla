@@ -35,7 +35,7 @@
         </div>
         <!-- Table -->
         <div class="table-responsive">
-            <table class="table table-fluid" id="myTable">
+            <table class="table table-hover" id="myTable">
                 <thead class="thead-dark">                                               
                     <?php 
                     $resultado = getSalas($conn);
@@ -46,6 +46,7 @@
                         while ($atributo= mysqli_fetch_field($resultado)) { ?>
                             <th> <?php echo $atributo->name; ?> </th>
                         <?php } ?>
+                        <th> Ver respuestas </th>
                                                                             
                 </thead>
                 <?php mysqli_data_seek($resultado, 0); ?>
@@ -53,12 +54,16 @@
                     <?php while ($renglon= mysqli_fetch_array($resultado)) { 
                             mysqli_field_seek($resultado, 0); ?>
                             <tr>
-                            <?php while ($atributo= mysqli_fetch_field($resultado)) { ?>
-                                    <td>
-                                        <?php echo $renglon[$atributo->name]; ?>
-                                    </td>
-                            <?php } ?>
-                                                                                            
+                                <?php while ($atributo= mysqli_fetch_field($resultado)) { ?>
+                                        <td>
+                                            <?php echo $renglon[$atributo->name]; ?>
+                                        </td>
+                                <?php } ?> 
+                                <td class="text-center">
+                                    <a role="button" class="btn btn-success" href="tabla_respuestas.php?idSala=<?= $renglon['Sala'] ?>">
+                                        <i class="far fa-comment-alt"></i>
+                                    </a>
+                                </td>                                                              
                             </tr>
                     <?php } }?>
                 </tbody>
@@ -69,6 +74,13 @@
 
     </div> 
 
+    <script>
+        function calis(x) {
+            alert("Entre"+x);
+            var myTab = document.getElementById('myTable');
+            var tableData = []; 
+        }
+    </script>
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- DATATABLES -->
