@@ -10,8 +10,24 @@ body {
     width: 50%;
 }
 
-input[type=radio]:hover{
+input[type=radio]:hover {
     cursor: pointer;
+}
+
+input[type="image"] {
+    border:0 none;
+    -moz-border:0 none;   
+    -webkit-border:0 none;  
+     outline: 0;
+}
+
+input[type="image"]:disabled {
+    opacity: 0.3;
+}
+
+input[type="image"]:enabled:active {
+    transform: translateY(2px);
+
 }
 
 .form-check label {
