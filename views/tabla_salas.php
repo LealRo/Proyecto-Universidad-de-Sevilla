@@ -31,8 +31,12 @@
 <body>
     <div class="container-fluid" id="tablaSalas">
         <div class="row">
-            <div class="col-sm-8"><h2>Historial de <b>salas</b></h2><br></div>
+            <div class="col-sm-8">
+                <h1 class="display-4" style="font-size: 30px">Historial de salas</h1>
+            </div>
         </div>
+        <hr>
+        <br>
         <!-- Table -->
         <div class="table-responsive">
             <table class="table table-hover" id="myTable">

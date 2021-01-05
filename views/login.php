@@ -38,7 +38,7 @@
                     <input type="submit" class="btn btn-success btn-block btn-lg" value="Iniciar sesión">
                 </div>
             </form>   
-            <a href="#">¿Olvidaste Contraseña?</a>
+            <!-- <a href="#">¿Olvidaste Contraseña?</a> -->
         </div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2020-2021</p>
         <!-- End of Main Content -->

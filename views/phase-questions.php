@@ -23,6 +23,13 @@
     <body>
         <!-- Main Content -->
         <div class="container-fluid text-center">
+            <div class="row justify-content-center">
+                <div class="col offset-10">
+                    <div id="myProgress">
+                        <div id="myBar">30%</div>
+                    </div> 
+                </div>
+            </div>
             <h1 class="display-4">A continuación escribe tus preguntas sobre el cuento</h1>
             <hr>
             <br>

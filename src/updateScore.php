@@ -11,7 +11,19 @@
 
         // Ejecutar query
         if(mysqli_query($conn, $query)) {
-            header("Location: ../views/tabla_preguntas.php?idSala=" . $idSala);
+
+            $sql = "SELECT SUM(puntaje) AS Total FROM respuesta WHERE idSala = $idSala;";
+            if ($result = mysqli_query($conn, $sql)) {
+                $row = mysqli_fetch_row($result);
+    
+                $finalScore = $row[0];
+
+                $sql = "UPDATE sala SET puntaje = $finalScore WHERE idSala = $idSala";
+
+                if (mysqli_query($conn, $sql)) {
+                    header("Location: ../views/tabla_preguntas.php?idSala=" . $idSala);
+                }
+            }
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($conn);
         }

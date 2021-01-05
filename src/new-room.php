@@ -11,7 +11,6 @@
         /* get post values */
         $titulo = $_POST['titulo'];
         $idCuento = $_POST['cuentos'];
-        $duracion = $_POST['duracion'];
         $idMaestro = $_SESSION['id'];
 
         /* create unique rom key */
@@ -20,7 +19,7 @@
 
         /* insert query */
         $sql = "INSERT INTO sala (idMaestro, idCuento, titulo, clave, puntaje, duracion, estado)
-                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', '0', '$duracion', '0')";
+                VALUES ('$idMaestro', '$idCuento', '$titulo', '$clave', '0', '0', '0')";
         
         /* attempt to execute insert query */
         if (mysqli_query($conn, $sql)) {

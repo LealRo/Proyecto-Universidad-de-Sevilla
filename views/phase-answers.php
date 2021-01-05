@@ -26,6 +26,13 @@
     <body>
         <!-- Main Content -->
         <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col offset-10">
+                    <div id="myProgress">
+                        <div id="myBar">90%</div>
+                    </div> 
+                </div>
+            </div>
             <h1 class="display-4 text-center">Comprueba</h1>
             <hr>
             <br>

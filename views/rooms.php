@@ -63,16 +63,6 @@
                                 <small id="cuentoHelpBlock" class="form-text text-muted"><a href="#" data-toggle="modal" data-target="#myModal">Visualizar cuento</a></small>
                             </div>
                             <div class="form-group col-auto">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-stopwatch"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control" name="duracion" id="duracion" min="0" placeholder="Duración (minutos)" required>
-                                    <div class="valid-feedback">Valido.</div>
-                                    <div class="invalid-feedback">Falta este campo.</div>
-                                </div>
-                            </div>
-                            <div class="form-group col-auto">
                                 <button type="submit" class="btn btn-success">Crear sala</button>
                             </div>
                         </div>

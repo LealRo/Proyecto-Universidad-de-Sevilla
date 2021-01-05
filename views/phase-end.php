@@ -1,9 +1,9 @@
-<?php
-    /* protect direct url access */
+<?php 
+    /* protect route */
     require_once '../src/authenticate-phase.php';
 
-    /* script for this phase */
-    require_once '../src/phase-title.php';
+    /* load content */
+    require_once '../src/phase-end.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Template's CSS -->
-        <link rel="stylesheet" href="../public/css/phase-title.css">
+        <link rel="stylesheet" href="../public/css/phase-end.css">
 
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/2c29f6056d.js" crossorigin="anonymous"></script>
@@ -25,23 +25,37 @@
     </head>
     <body>
         <!-- Main Content -->
-        <div class="container-fluid">
+        <div class="container-fluid text-center">
             <div class="row justify-content-center">
                 <div class="col offset-10">
                     <div id="myProgress">
-                        <div id="myBar">15%</div>
+                        <div id="myBar">100%</div>
                     </div> 
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <h1 class="display-3"><?php echo $title; ?></h1>
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4">Calificación</h1>
+                </div>
             </div>
             <hr>
             <br>
-            <div class="row justify-content-center">
-                <a class="btn btn-success" href="../src/title-questions.php" role="button">Siguiente <i class="fas fa-arrow-right"></i></a>
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4 text-success" style="font-size: 30px">Felicidades! Has concluido la actividad</h1>
+                </div>
             </div>
-            
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4" style="font-size: 25px">Puntaje final: <?php echo $finalScore; ?></h1>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <a class="btn btn-success" href="../src/delete-session.php" role="button">Salir <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+
         </div>
 
         <!-- End of Main Content -->

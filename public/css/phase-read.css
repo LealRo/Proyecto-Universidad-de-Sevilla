@@ -15,3 +15,17 @@ iframe{
     height: 50vh;
     border: none;
 }
+
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#myBar {
+    width: 45%;
+    height: 30px;
+    background-color: #28a745;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}

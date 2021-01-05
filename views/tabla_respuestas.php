@@ -35,8 +35,12 @@ require_once '../src/querySala.php';
 <body>
 <div class="container-fluid" id="tablaSalas">
     <div class="row">
-        <div class="col-sm-8"><h2>Respuesta de la pregunta seleccionada</h2><br></div>
+        <div class="col-sm-8">
+            <h1 class="display-4" style="font-size: 30px">Respuesta de la pregunta seleccionada</h1>
+        </div>
     </div>
+    <hr>
+    <br>
     <!-- Table -->
     <div class="table-responsive">
         <table class="table table-hover" id="myTable">

@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Template's CSS -->
-        <link rel="stylesheet" href="../public/css/phase-questions.css">
+        <link rel="stylesheet" href="../public/css/phase-strategies.css">
 
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/2c29f6056d.js" crossorigin="anonymous"></script>
@@ -23,6 +23,13 @@
     <body>
         <!-- Main Content -->
         <div class="container-fluid text-center">
+            <div class="row justify-content-center">
+                <div class="col offset-10">
+                    <div id="myProgress">
+                        <div id="myBar">98%</div>
+                    </div> 
+                </div>
+            </div>
             <h1 class="display-4">¿Qué puedes hacer cuando no puedes responder a las preguntas o no entiendes algo del texto?</h1>
             <hr>
             <br>
