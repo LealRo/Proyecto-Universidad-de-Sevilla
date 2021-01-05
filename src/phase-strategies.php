@@ -36,6 +36,12 @@
             if (mysqli_query($conn, $sql)) {
                 echo 'Game state updated successfully';
                 
+                /* unset all of the session variables */
+                $_SESSION = array();
+
+                /* destroy the session */
+                session_destroy();
+
                 /* redirect to homepage */
                 header('location: ../public/index.php');
             } else {

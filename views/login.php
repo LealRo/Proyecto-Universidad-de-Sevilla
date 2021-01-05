@@ -19,6 +19,8 @@
     <body>
         <!-- Main Content -->
         <div class="container-fluid text-center">
+            <h2 class="display-4 text-secondary">Maestro</h2>
+            <br>
             <img class="mb-4" src="../public/img/user.png" alt="" width="150px" height="150px">
             <!-- Login Form -->
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="needs-validation" novalidate>
