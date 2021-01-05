@@ -5,7 +5,7 @@
         /* block direct url access, room code needed */
         header('location: ../public/index.php');
         exit;
-    } 
+    }   
 ?>
 
 <!DOCTYPE html>
@@ -27,33 +27,66 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row justify-content-center">
-                <h1 class="display-4">Ingresa tus datos</h1>
-            </div>
+            <h1 class="display-4 text-center">Ingresa vuestros datos</h1>
             <hr>
-            <br>
-            <div class="row">
-                <div class="col-2 text-center">
-                    <label>Avatar:</label>
+            <form action="../src/enter-room.php" method="post" class="needs-validation" novalidate>
+                <div class="form-row justify-content-center">
+                    <label>Jugador 1</label>
                 </div>
-                <div class="col-4 text-left">
-                    <img class="mb-4 selectable" src="../public/img/Hombre.png" alt="" width="110px" height="159px">
-                    <img class="mb-4 selectable" src="../public/img/Mujer.png" alt="" width="110px" height="159px">
+                <br>
+                <div class="form-row">
+                    <div class="col-1"></div>
+                    <div class="form-check col-3">
+                        <input class="form-check-input" type="radio" name="player1avatar" id="avatarMasc1" value="masculino" required>    
+                        <label class="form-check-label" for="avatarMasc1">&nbsp;&nbsp;<img class="mb-4 selectable" id="avatarp1m" src="../public/img/avatar/chico1.png" alt="" width="200px" height="200px"></label>
+                    </div>
+                    <div class="form-check col-3">
+                        <input class="form-check-input" type="radio" name="player1avatar" id="avatarFem1" value="femenino">
+                        <label class="form-check-label" for="avatarFem1">&nbsp;&nbsp;<img class="mb-4 selectable" id="avatarp1w" src="../public/img/avatar/chica1.png" alt="" width="200px" height="200px"></label>
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="player1name" name="player1name" autocomplete="off" required>
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Falta este campo</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-2 offset-2"><input type="image" id="left-p1m" src="../public/img/left-arrow.png" width="32px" height="32px" /><input type="image" id="right-p1m" src="../public/img/right-arrow.png" width="32px" height="32px" /></div>
+                    <div class="col-2 offset-1"><input type="image" id="left-p1w" src="../public/img/left-arrow.png" width="32px" height="32px" /><input type="image" id="right-p1w" src="../public/img/right-arrow.png" width="32px" height="32px" /></div>
+                </div>
+                <hr>
+                <br>
+                <div class="form-row justify-content-center">
+                    <label>Jugador 2</label>
+                </div>
+                <div class="form-row">
+                    <div class="col-1"></div>
+                    <div class="form-check col-3">
+                        <input class="form-check-input" type="radio" name="player2avatar" id="avatarMasc2" value="masculino" required>    
+                        <label class="form-check-label" for="avatarMasc2">&nbsp;&nbsp;<img class="mb-4 selectable" id="avatarp2m" src="../public/img/avatar/chico1.png" alt="" width="200px" height="200px"></label>
+                    </div>
+                    <div class="form-check col-3">
+                        <input class="form-check-input" type="radio" name="player2avatar" id="avatarFem2" value="femenino">
+                        <label class="form-check-label" for="avatarFem2">&nbsp;&nbsp;<img class="mb-4 selectable" id="avatarp2w" src="../public/img/avatar/chica1.png" alt="" width="200px" height="200px"></label>
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="player2name" name="player2name" autocomplete="off" required>
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Falta este campo</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-2 offset-2"><input type="image" id="left-p2m" src="../public/img/left-arrow.png" width="32px" height="32px" /><input type="image" id="right-p2m" src="../public/img/right-arrow.png" width="32px" height="32px" /></div>
+                    <div class="col-2 offset-1"><input type="image" id="left-p2w" src="../public/img/left-arrow.png" width="32px" height="32px" /><input type="image" id="right-p2w" src="../public/img/right-arrow.png" width="32px" height="32px" /></div>
+                </div>
+                <br>
+                <input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid ?>">
+                <br>
+                <div class="text-center"><button type="submit" class="btn btn-success btn-block">Comenzar <i class="fas fa-arrow-right"></i></button></div>
                 
-                </div>
-                <div class="col-6">
-                    <form action="../src/enter-room.php" method="post" class="needs-validation" novalidate>
-                        <div class="form-group">
-                            <label for="name">Nombre:</label>
-                            <input type="text" class="form-control" id="name" name="name" autocomplete="off" required>
-                            <div class="valid-feedback">Correcto</div>
-                            <div class="invalid-feedback">Falta este campo</div>
-                        </div>
-                        <input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid ?>">
-                        <button type="submit" class="btn btn-success btn-block">Comenzar</button>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
 
         <!-- JQuery, Popper and Bootstrap JS -->
@@ -62,6 +95,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <!-- Template's JS -->
-        <script src="../public/js/needsValidation.js"></script>
+        <script src="../public/js/avatar-selector.js"></script>
+
     </body>
 </html>

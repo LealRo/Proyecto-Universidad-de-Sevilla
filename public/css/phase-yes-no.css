@@ -1,0 +1,64 @@
+body {
+    background: #fafafa;
+}
+
+.container-fluid {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    border: 1px solid #e0e0e0;
+    width: 80%;
+}
+
+label {
+    cursor: pointer;
+}
+
+img:hover, label:hover{
+    opacity: 0.9;
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+[type=radio] + img {
+    cursor: pointer;
+}
+
+[type=radio]:checked + img{
+    outline: 2px solid #e0e0e0;
+}
+
+#no:checked + img {
+    box-shadow: 0 0 3px 3px red;
+    transform: 
+        rotateZ(+20deg) 
+        rotateX(10deg);
+}
+
+#yes:checked + img{
+    box-shadow: 0 0 3px 3px green;
+    transform: 
+        rotateZ(-20deg) 
+        rotateX(10deg);
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#myBar {
+    width: 60%;
+    height: 30px;
+    background-color: #28a745;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+
+  

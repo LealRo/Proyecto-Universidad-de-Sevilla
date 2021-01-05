@@ -17,9 +17,9 @@ require_once '../src/querySala.php';
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!-- DATATABLES -->
 <!--  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
-
  <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
@@ -36,7 +36,7 @@ require_once '../src/querySala.php';
 <div class="container-fluid" id="tablaSalas">
     <div class="row">
         <div class="col-sm-8">
-            <h1 class="display-4" style="font-size: 30px">Respuesta de la pregunta seleccionada</h1>
+            <h1 class="display-4" style="font-size: 30px">Preguntas de la sala #<?php echo $_GET['idSala']; ?></h1>
         </div>
     </div>
     <hr>
@@ -46,9 +46,7 @@ require_once '../src/querySala.php';
         <table class="table table-hover" id="myTable">
             <thead class="thead-dark">                                               
                 <?php 
-
-                $offset = 7;
-                $resultado = getRespuesta($conn,$offset);
+                $resultado = getSala($conn);
 
                 if(empty($resultado)){
                     echo "No se encontraron respuestas";
@@ -56,7 +54,7 @@ require_once '../src/querySala.php';
                     while ($atributo= mysqli_fetch_field($resultado)) { ?>
                         <th> <?php echo $atributo->name; ?> </th>
                     <?php } ?>                                   
-                    <th> Acciones</th>        
+                    <th> Acciones</th>       
             </thead>
             <?php mysqli_data_seek($resultado, 0); ?>
             <tbody>
@@ -71,7 +69,10 @@ require_once '../src/querySala.php';
                                     </td>
                             <?php } ?>
                             <td class="text-center">
-                                <button onclick="callModalUpdate(<?= $_GET['idRespuesta']+$offset?>, <?= $_GET['idSala']?>)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalPuntaje"><i class="far fa-edit"></i></button>        
+                                <a role="button" class="btn btn-success" href="tabla_respuestas.php?idSala=<?= $_GET['idSala'];  ?>&idRespuesta=<?= $renglon['ID'];?>">
+                                    <i class="far fa-comment-alt"></i>
+                                </a>
+                                <button onclick="callModalUpdate(<?= $renglon['ID']?>, <?= $_GET['idSala']?>)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalPuntaje"><i class="far fa-edit"></i></button>        
                             </td>                                                               
                         </tr>
                 <?php } }?>
@@ -79,7 +80,7 @@ require_once '../src/querySala.php';
         </table>
         <br>
     </div>  
-    <a href="tabla_preguntas.php?idSala= <?= $_GET['idSala']; ?>&idRespuesta=<?=  $_GET['idRespuesta']?>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Regresar</a>
+    <a href="tabla_salas.php" class="btn btn-success"><i class="fa fa-arrow-left"></i> Regresar</a>
 
     <!-- Modal para ver respuesta-->
     <div class="modal fade" id="modalRespuesta" role="dialog">
@@ -143,9 +144,9 @@ require_once '../src/querySala.php';
 <!-- BOOTSTRAP -->
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 <!-- Para traducirlo al español -->                      
 <script src="../public/js/dataTable.js"></script>    

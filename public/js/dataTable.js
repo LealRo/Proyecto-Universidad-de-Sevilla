@@ -5,12 +5,10 @@ $(document).ready( function () {
                 search: "Buscar&nbsp;:",
                 lengthMenu: "Agrupar de _MENU_ items",
                 info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
-                infoEmpty: "No existen datos.",
                 infoFiltered: "(filtrado de _MAX_ elementos en total)",
                 infoPostFix: "",
                 loadingRecords: "Cargando...",
                 zeroRecords: "Sin resultados",
-                emptyTable: "Aun no se han creado salas",
                 paginate: {
                     first: "Primero",
                     previous: "Anterior",
