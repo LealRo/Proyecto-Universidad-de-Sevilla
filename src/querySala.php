@@ -1,17 +1,15 @@
 <?php
 function getSalas($con){ /*Busca todas */
-
     $idMaestro = $_SESSION['id'];
     
     $query = "SELECT sala.idSala AS Sala, cuento.titulo AS Cuento, sala.titulo AS Titulo, sala.alumno1 AS 'Integrante 1', sala.alumno2 AS 'Integrante 2', sala.puntaje AS Puntaje FROM sala INNER JOIN cuento ON sala.idCuento = cuento.idCuento WHERE sala.idMaestro = $idMaestro;";
+
    
     $result = mysqli_query($con,$query);
     if(mysqli_num_rows($result)>0){
         return $result;
     }   
 }
-
-
 
 function getSala($con){  
     $idSala = $_GET['idSala'];
@@ -38,10 +36,12 @@ function getRespuesta($con,$offset){
     FROM respuesta r INNER JOIN tipoRespuesta tr ON r.idTipoRespuesta = tr.idTipoRespuesta 
     WHERE idSala = '$idSala' AND tr.textoTipo = 'Respuesta' AND r.idRespuesta = ('$idRespuesta'+'$offset')";
 
+
     $result = mysqli_query($con,$query);
     if(mysqli_num_rows($result)>0){
         return $result;
     }  
+
 }
 
 function getNumberOfQuestions($con){
