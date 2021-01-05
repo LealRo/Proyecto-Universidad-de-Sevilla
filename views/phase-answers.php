@@ -3,7 +3,7 @@
     require_once '../src/authenticate-phase.php';
 
     /* load in the questions */
-    require_once '../src/phase-answers.php';
+    require_once '../src/get-questions.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
             <br>
             <div class="row justify-content-md-center">
                 <div class="col col-8">
-                    <form action="../src/answers-strategies.php" method="post" id="answers-form" class="needs-validation" novalidate>
+                    <form action="../src/phase-answers.php" method="post" id="answers-form" class="needs-validation" novalidate>
                         <?php while ( $row = mysqli_fetch_array($result) ) { ?>
                             <div class="form-group">
                                 <h1 class="display-4 text-success" style="font-size: 22px"><?php echo $row[0] ?></h1>

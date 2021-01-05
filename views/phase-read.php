@@ -54,7 +54,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Cancelar</button>
-                            <a href="phase-yes-no.php" role="button" class="btn btn-success btn-block">Si, quiero avanzar</a>
+                            <a href="../src/read-yes-no.php" role="button" class="btn btn-success btn-block">Si, quiero avanzar</a>
                         </div>
                     </div>
                 </div>

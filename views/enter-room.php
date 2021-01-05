@@ -5,7 +5,7 @@
         /* block direct url access, room code needed */
         header('location: ../public/index.php');
         exit;
-    }  
+    }   
 ?>
 
 <!DOCTYPE html>

@@ -18,20 +18,23 @@
 
             if (mysqli_query($conn, $sql)) {
                 echo "New records created successfully";
-                
-                /* redirect to next phase */
-                header('location: ../views/phase-answers.php');
-
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-            
-            mysqli_close($conn);
         }
 
-        /* redirect to next phase */
-        header('location: ../views/phase-answers.php');
+        /* update game state */
+        $sql = "UPDATE sala SET estado = '6' WHERE idSala = '$idSala'";
 
+        if (mysqli_query($conn, $sql)) {
+            echo 'Game state updated successfully';
+
+            mysqli_close($conn);
+
+            /* redirect to next phase */
+            header('location: ../views/phase-answers.php');
+        } else {
+            echo 'Error updating game state';
+        }
     }
-
 ?>

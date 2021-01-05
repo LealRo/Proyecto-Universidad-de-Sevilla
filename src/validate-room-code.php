@@ -10,7 +10,7 @@
         $roomCode = $_POST['roomid'];
 
         /* sql statement */
-        $sql = "SELECT * FROM sala WHERE clave = '$roomCode' AND estado != 7";
+        $sql = "SELECT * FROM sala WHERE clave = '$roomCode' AND estado != 8";
 
         /* attempt to execute query */
         $result = mysqli_query($conn, $sql);

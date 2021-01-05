@@ -29,7 +29,19 @@
         /* attempt to execute query */
         if (mysqli_query($conn, $sql)) {
             echo '<script>console.log("New records created successfully");</script>';
-            header('location: ../public/index.php');
+
+            /* update game state */
+            $sql = "UPDATE sala SET estado = '8' WHERE idSala = '$idSala'";
+
+            if (mysqli_query($conn, $sql)) {
+                echo 'Game state updated successfully';
+                
+                /* redirect to homepage */
+                header('location: ../public/index.php');
+            } else {
+                echo 'Error updating game state';
+            }
+            
         } else {
             echo '<script>console.log("Failed to create new records");</script>';
         }

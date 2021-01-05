@@ -14,7 +14,7 @@
         
 
         /* sql statement */
-        $sql = "SELECT idSala FROM sala WHERE clave = '$clave' AND estado != '7'";
+        $sql = "SELECT idSala FROM sala WHERE clave = '$clave' AND estado != 8";
 
         /* execute query */
         $result = mysqli_query($conn, $sql);
