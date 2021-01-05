@@ -64,7 +64,7 @@ require_once '../src/rooms-history.php';
                                     </td>
                             <?php } ?> 
                             <td class="text-center">
-                                <a role="button" class="btn btn-success" href="game-results.php?idSala=<?= $renglon['# Sala'] ?>">
+                                <a role="button" class="btn btn-success" href="results.php?idSala=<?= $renglon['# Sala'] ?>">
                                     <i class="far fa-comment-alt"></i>
                                 </a>
                             </td>                                                              
@@ -73,7 +73,9 @@ require_once '../src/rooms-history.php';
             </tbody>
         </table>
         <br>
-    </div>  
+    </div>
+    <hr>
+    <br>  
     <a href="menu.php" class="btn btn-success"><i class="fa fa-arrow-left"></i> Regresar</a>       
 
 </div> 
