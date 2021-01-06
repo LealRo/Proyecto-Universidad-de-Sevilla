@@ -21,7 +21,7 @@
                 $sql = "UPDATE sala SET puntaje = $finalScore WHERE idSala = $idSala";
 
                 if (mysqli_query($conn, $sql)) {
-                    header("Location: ../views/tabla_preguntas.php?idSala=" . $idSala);
+                    header("Location: ../views/tabla_salas.php");
                 }
             }
         } else {
