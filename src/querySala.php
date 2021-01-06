@@ -42,10 +42,12 @@ function getRespuesta($con,$offset){
     FROM respuesta r INNER JOIN tipoRespuesta tr ON r.idTipoRespuesta = tr.idTipoRespuesta 
     WHERE idSala = '$idSala' AND tr.textoTipo = 'Respuesta' AND r.idRespuesta = ('$idRespuesta'+'$offset')";
 
+
     $result = mysqli_query($con,$query);
     if(mysqli_num_rows($result)>0){
         return $result;
     }  
+
 }
 
 /*Funcion que retorna la consulta con las respuestas de tipo estrategia de una determinada sala */
