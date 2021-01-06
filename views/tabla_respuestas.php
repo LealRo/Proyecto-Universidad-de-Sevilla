@@ -47,8 +47,11 @@ require_once '../src/querySala.php';
             <thead class="thead-dark">                                               
                 <?php 
 
-                $offset = 7;
-                $resultado = getRespuesta($conn,$offset);
+                $flag = existenDeComprension($conn);                         /*Funcion que retorna si existen respuesta de compresion*/
+                if($flag == 0)  $offset = getNumberOfQuestions($conn);      /*Si no existen, el desplazamiento a las respuestas tipo 2 es normal */
+                else            $offset = getNumberOfQuestions($conn) + 2;  /*Si existen, se suman 2 respuestas mas al offset */
+                
+                $resultado = getRespuesta($conn,$offset);                   /*Realiza consulta */
 
                 if(empty($resultado)){
                     echo "No se encontraron respuestas";
@@ -115,7 +118,7 @@ require_once '../src/querySala.php';
                     <form action="../src/updateScore.php" method="POST" class="was-validated">
                         <input type="hidden" id="idSala" name="idSala">
                         <input type="hidden" id="idRespuesta" name="idRespuesta">
-                        <center><input type="number" id="puntaje" name="puntaje" placeholder="e.j: 85"></center>
+                        <center><input type="number" id="puntaje" name="puntaje" placeholder="e.j: 85" min="1" max="100"></center>
                         <br>
                         
                         <div class="modal-footer">

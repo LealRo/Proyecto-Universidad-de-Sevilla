@@ -65,6 +65,9 @@
                                 <?php } ?> 
                                 <td class="text-center">
                                     <a role="button" class="btn btn-success" href="tabla_preguntas.php?idSala=<?= $renglon['Sala'] ?>">
+                                        <i class="fas fa-poll-h"></i>
+                                    </a>
+                                    <a role="button" class="btn btn-info" href="tabla_estrategias.php?idSala=<?= $renglon['Sala'] ?>">
                                         <i class="far fa-comment-alt"></i>
                                     </a>
                                 </td>                                                              
